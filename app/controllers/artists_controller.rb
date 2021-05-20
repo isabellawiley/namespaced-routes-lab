@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  # before_action :log_in
+
   def index
     @artists = Artist.all
   end
@@ -9,6 +11,7 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
+    redirect_to "/artists"
   end
 
   def create
@@ -49,4 +52,5 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name)
   end
+
 end
